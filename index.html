@@ -1,25 +1,3 @@
-
-<!--
-Refined prompt (Português) — use como instrução para qualquer gerador/IA:
-
-Crie uma landing page para GitHub Pages focada em Segurança Ofensiva e Pentest com estética "hacker profissional" — sóbria, técnica e minimalista. Evite clichês neon e animações chamativas; prefira tipografia limpa, contraste escuro e detalhes que remetam a terminal/teclado de forma sutil.
-
-A página deve conter:
-- Cabeçalho com nome: HexSilent水 e subtítulo curto: "Offensive Security • Pentest • Web Hacking Avançado".
-- Bloco "Sobre" com resumo técnico (pentester em atuação, comunidades, formação) — objetivo: transmitir maturidade técnica.
-- Seção de links (GitHub, LinkedIn, TryHackMe, HTB, email) com ícones simples em SVG e foco em acessibilidade.
-- Seção de projetos com cards; cada card: título, breve descrição técnica, tags, link para repositório ou writeup.
-- Seção de contato e rodapé minimalista.
-- Dois modos/variantes no mesmo arquivo: (A) layout principal minimalista; (B) variante com micro-animações tipo terminal (efeito de digitação em um bloco de destaque), ativável via botão.
-
-Requisitos técnicos:
-- Apenas HTML + CSS + um pequeno JS vanilla (sem dependências externas).
-- Responsivo, pronto para GitHub Pages.
-- Paleta escura, tipografia moderna, legível.
-- Código limpo e modular, comentado o suficiente para manutenção.
-- Nada de listar ferramentas óbvias; foco em narrativa técnica e projetos.
--->
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -29,10 +7,10 @@ Requisitos técnicos:
   <meta name="description" content="HexSilent水 — Pentest, Web Hacking Avançado. Portfólio técnico e projetos." />
   <style>
     :root{
-      --bg:#0b0f12; /* quase preto */
+      --bg:#0b0f12; 
       --panel:#0f1417;
       --muted:#98a0a6;
-      --accent:#6be3c1; /* água */
+      --accent:#6be3c1;
       --glass: rgba(255,255,255,0.03);
       --radius:14px;
       --maxw:1100px;
@@ -69,13 +47,13 @@ Requisitos técnicos:
 
     main{display:grid;grid-template-columns:1fr 380px;gap:18px}
 
-    /* about / intro */
+    
     .panel{background:linear-gradient(180deg,var(--panel), rgba(15,20,23,0.9));padding:22px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(3,6,8,0.6);}
     .lead{font-size:15px;line-height:1.5;color:#cfd9dd}
     .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .chip{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:12px;color:var(--muted)}
 
-    /* projects */
+    
     .projects{margin-top:16px;display:grid;gap:12px}
     .card{background:rgba(255,255,255,0.02);padding:var(--card-padding);border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
     .card h3{margin:0 0 8px 0;font-size:15px}
@@ -83,8 +61,7 @@ Requisitos técnicos:
     .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
     .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
 
-    /* sidebar */
-    aside{position:relative}
+    .aside{position:relative}
     .profile{display:flex;gap:12px;align-items:center}
     .avatar{width:86px;height:86px;border-radius:10px;background:linear-gradient(135deg,#051017,#0b1214);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:30px;color:var(--accent);}
     .small{font-size:13px;color:var(--muted)}
@@ -93,19 +70,19 @@ Requisitos técnicos:
     .link{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);text-decoration:none;color:inherit}
     .icon{width:18px;height:18px;opacity:0.9}
 
-    /* terminal highlight (variant) */
+  
     .terminal-card{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(2,6,8,0.6), rgba(0,0,0,0.3));font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;color:#bcdedf;border:1px solid rgba(107,227,193,0.06)}
     .term-line{white-space:pre-wrap;overflow:hidden}
     .type{display:inline-block}
 
-    /* typing effect */
+    
     .cursor{display:inline-block;width:8px;height:18px;background:var(--accent);margin-left:6px;border-radius:2px;vertical-align:middle;opacity:0.9;animation:blink 1s steps(2) infinite}
     @keyframes blink{50%{opacity:0}}
 
-    /* footer */
+    
     footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
 
-    /* responsive */
+    
     @media (max-width:980px){main{grid-template-columns:1fr}aside{order:2}header{flex-direction:column;align-items:flex-start;gap:12px} .avatar{width:64px;height:64px}}
 
   </style>
@@ -157,7 +134,7 @@ Requisitos técnicos:
             </div>
           </div>
 
-          <!-- terminal highlight (hidden by default) -->
+          
           <div class="terminal-card" id="terminalCard" style="display:none;">
             <div class="term-line"><span class="type" data-text="Recon > priorizar alvos; fuzz > brute; exploit > validar lógica. Fluxo: mapa -> ataque -> persistência."></span><span class="cursor"></span></div>
           </div>
@@ -182,11 +159,11 @@ Requisitos técnicos:
           <div class="links">
             <a class="link" href="https://github.com/rv157244" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.4v-1.5c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.6.7 2 .9.1-.7.4-1.4.7-1.7-2.3-.3-4.7-1.1-4.7-4.9 0-1.1.4-2 .9-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.7 1 .8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7.9 1.6.9 2.7 0 3.8-2.4 4.6-4.7 4.9.4.4.8 1 .8 2v3c0 .2.2.5.7.4 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z" fill="currentColor"/></svg> GitHub</a>
 
-            <a class="link" href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zM20 19h-3v-5c0-1.2-.03-2.73-1.66-2.73-1.66 0-1.92 1.3-1.92 2.64v5.09H10v-10h2.88v1.37h.04c.4-.75 1.38-1.54 2.85-1.54 3.05 0 3.61 2.01 3.61 4.62V19z" fill="currentColor"/></svg> LinkedIn</a>
+            <a class="link" href="https://www.linkedin.com/in/rv157244/" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zM20 19h-3v-5c0-1.2-.03-2.73-1.66-2.73-1.66 0-1.92 1.3-1.92 2.64v5.09H10v-10h2.88v1.37h.04c.4-.75 1.38-1.54 2.85-1.54 3.05 0 3.61 2.01 3.61 4.62V19z" fill="currentColor"/></svg> LinkedIn</a>
 
             <a class="link" href="https://tryhackme.com/p/jjrsilv" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm3.5 18.6l-1.9-.5c-.2-.1-.6-.2-.8-.2-.2 0-.4.1-.6.2l-1.3.6c-2 .9-3.4 1.4-4.4 1.4-1.1 0-1.8-.8-1.8-2.1 0-1.1.6-3.1 1.9-6 1.6-3.6 3-5.6 4.4-5.6 1 0 1.7 1.6 1.7 3.1 0 1.9-.8 3.8-2.3 6.1 0 0 2.5 3.9 6.1 4.8z" fill="currentColor"/></svg> TryHackMe</a>
 
-            <a class="link" href="#contact" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/></svg> Email</a>
+            <a class="link" href="https://discord.com/users/hexsilent." rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/></svg> Email</a>
           </div>
 
           <div style="margin-top:14px; font-size:13px; color:var(--muted)">Disponibilidade: projetos comerciais e colaborações técnicas.</div>
@@ -196,7 +173,6 @@ Requisitos técnicos:
   </div>
 
   <script>
-    /* Variant toggle: ativa e anima o bloco "terminal" */
     const btn = document.getElementById('toggleVariant');
     const term = document.getElementById('terminalCard');
     const typeEl = term ? term.querySelector('.type') : null;
